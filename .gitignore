@@ -1,0 +1,6 @@
+# pkg
+node_modules/
+
+# IDE
+.idea/
+.DS_Store

@@ -1,0 +1,15 @@
+{
+  "name": "rules-engine-poc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "salesExample": "nodemon src/salesExample/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-rules-engine": "^5.0.4"
+  }
+}
