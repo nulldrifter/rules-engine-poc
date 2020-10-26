@@ -8,6 +8,7 @@ const engine = new Engine(rules);
 facts.forEach(async (fact) => {
   await engine.run(fact)
     .then(results => {
+      delete fact['success-events']
       console.log(`------------------------------`);
       console.log(fact);
       console.log('\nQualifies for:');
