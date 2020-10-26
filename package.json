@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "salesExample": "nodemon src/salesExample/index.js"
+    "example:sales": "nodemon examples/salesPromo/index.js",
+    "example:tickets": "nodemon examples/ticketSyst/index.js"
   },
   "keywords": [],
   "author": "",

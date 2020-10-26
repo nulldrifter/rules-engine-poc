@@ -7,7 +7,7 @@ exports.facts = [
     total: 45,
   },
   {
-    isPremiumCustomer: 1,
+    isPremiumCustomer: 0,
     location: 'store-9759',
     month: 'Oct',
     shipping: null,

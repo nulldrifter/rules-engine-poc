@@ -1,14 +1,13 @@
 const {Engine} = require('json-rules-engine')
-const {ecommerce} = require('./rules');
+const {rules} = require('./rules');
 const {facts} = require('./facts');
 
 
-const engine = new Engine(ecommerce);
+const engine = new Engine(rules);
 
-facts.map((fact) => {+
-  engine.run(fact)
+facts.forEach(async (fact) => {
+  await engine.run(fact)
     .then(results => {
-      delete fact['success-events'];
       console.log(`------------------------------`);
       console.log(fact);
       console.log('\nQualifies for:');
