@@ -1,5 +1,5 @@
 exports.rules = [
-  //company-wide sale: 15% off during October sales event
+  // company-wide sale: 15% off during October sales event
   {
     //
     conditions: {
@@ -12,7 +12,7 @@ exports.rules = [
     event: {
       type: 'octoberSale',
       params: {
-        data: '15% off'
+        promo: '15% off'
       }
     }
   },
@@ -24,7 +24,7 @@ exports.rules = [
         {
           fact: 'isPremiumCustomer',
           operator: 'equal',
-          value: 1
+          value: true
         },
         {
           fact: 'location',
@@ -36,7 +36,7 @@ exports.rules = [
     event: {
       type: 'premiumOnlineDiscount',
       params: {
-        data: 'free shipping'
+        promo: 'free shipping'
       }
     }
   },
@@ -60,7 +60,7 @@ exports.rules = [
     event: {
       type: '10off100',
       params: {
-        data: '$10 off'
+        promo: '$10 off'
       }
     }
   },

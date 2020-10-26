@@ -1,28 +1,4 @@
 exports.systemRules = [
-  // send alert if overdue
-  {
-    conditions: {
-      all: [{
-        fact: 'overdue',
-        operator: 'equal',
-        value: true
-      }]
-    },
-    event: {
-      type: 'overdue',
-      params: {
-        message: 'An email has been sent.'
-      },
-    },
-    name: 'Overdue Ticket Alert',
-    priority: 10,
-    onSuccess(event, almanac) {
-      almanac.factValue('id').then(id => {
-        console.log(`Ticket #${id} is overdue -> sending email.`)
-      })
-    },
-  },
-
   // assign to a team based on ticket type
   {
     conditions: {
@@ -59,6 +35,30 @@ exports.systemRules = [
     },
     name: 'Ticket Assignment',
     priority: 10,
+  },
+  
+  // send alert if overdue
+  {
+    conditions: {
+      all: [{
+        fact: 'overdue',
+        operator: 'equal',
+        value: true
+      }]
+    },
+    event: {
+      type: 'overdue',
+      params: {
+        message: 'An email has been sent.'
+      },
+    },
+    name: 'Overdue Ticket Alert',
+    priority: 10,
+    onSuccess(event, almanac) {
+      almanac.factValue('id').then(id => {
+        console.log(`Ticket #${id} is overdue -> sending email.`)
+      })
+    },
   },
 ]
 
