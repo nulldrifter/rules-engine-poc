@@ -1,7 +1,6 @@
 exports.rules = [
   // company-wide sale: 15% off during October sales event
   {
-    //
     conditions: {
       all: [{
         fact: 'month',
