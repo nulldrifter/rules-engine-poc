@@ -7,24 +7,25 @@ const engine = new Engine([...systemRules, ...departmentRules])
 
 engine.on('success', (event, almanac, ruleResult) => {
   almanac.factValue('id').then(id => {
-    render(`Ticket #${id} passed ${ruleResult.name}. ${event.params.message}`, ruleResult)
+    logEngineEvent(`Ticket #${id} passed ${ruleResult.name}. ${event.params.message}`, ruleResult)
     updateTicket(id, event);
   })
 })
 
 engine.on('failure', (event, almanac, ruleResult) => {
   almanac.factValue('id').then(id => {
-    render(`Ticket #${id} fell through ${ruleResult.name};`, ruleResult)
+    logEngineEvent(`Ticket #${id} fell through ${ruleResult.name};`, ruleResult)
   })
 })
 
-function render (message, ruleResult) {
+function logEngineEvent (message, ruleResult) {
   const detail = ruleResult.conditions.all
     .filter(condition => !condition.result)
     .map(condition => {
       switch (condition.operator) {
         case 'equal':
           return `${condition.fact} !== ${condition.value}`
+        case 'greaterThan':
         case 'greaterThanInclusive':
           return `${condition.fact} of ${condition.factResult} was too low`
       }

@@ -36,7 +36,7 @@ exports.systemRules = [
     name: 'Ticket Assignment',
     priority: 10,
   },
-  
+
   // send alert if overdue
   {
     conditions: {
@@ -64,7 +64,7 @@ exports.systemRules = [
 
 
 exports.departmentRules = [
-  // IT wants the severity of some inquiries increased and re-assigned
+  // IT wants the severity of certain tickets increased and re-assign them
   {
     conditions: {
       all: [{
